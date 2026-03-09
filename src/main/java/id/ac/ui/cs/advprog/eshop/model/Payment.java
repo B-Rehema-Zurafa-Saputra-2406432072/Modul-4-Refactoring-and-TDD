@@ -7,6 +7,7 @@ import java.util.Map;
 @Getter
 public class Payment {
     private String id;
+    private Order order;
     private String method;
     private String status;
     private Map<String, String> paymentData;
@@ -24,6 +25,11 @@ public class Payment {
         }
 
         this.status = isValid ? PaymentStatus.SUCCESS.getValue() : PaymentStatus.REJECTED.getValue();
+    }
+
+    public Payment(String id, Order order, String method, Map<String, String> paymentData) {
+        this(id, method, paymentData);
+        this.order = order;
     }
 
     private boolean validateVoucher(Map<String, String> data) {
