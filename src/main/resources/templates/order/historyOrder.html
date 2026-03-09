@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>Order History Lookup</title></head>
+<body>
+<h2>Find Your Orders</h2>
+<form th:action="@{/order/history}" method="post">
+    <input type="text" name="author" placeholder="Enter your name" required/>
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>
