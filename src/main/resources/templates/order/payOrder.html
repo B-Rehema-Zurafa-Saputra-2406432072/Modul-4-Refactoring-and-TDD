@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>Pay Order</title></head>
+<body>
+<h2>Pay Order: <span th:text="${orderId}"></span></h2>
+<form th:action="@{/order/pay/{id}(id=${orderId})}" method="post">
+  <button type="submit">Confirm Payment Intent</button>
+</form>
+
+<div th:if="${paymentId != null}">
+  <h3>Payment Created!</h3>
+  <p>Your Payment ID is: <strong th:text="${paymentId}"></strong></p>
+  <a th:href="@{/payment/detail/{id}(id=${paymentId})}">Proceed to Payment Details</a>
+</div>
+</body>
+</html>

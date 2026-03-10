@@ -25,6 +25,7 @@ sonar {
         property("sonar.projectKey", "B-Rehema-Zurafa-Saputra-2406432072_Modul-4-Refactoring-and-TDD")
         property("sonar.organization", "b-rehema-zurafa-saputra-2406432072")
         property("sonar.host.url", "https://sonarcloud.io")
+        property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
     }
 }
 
@@ -88,4 +89,8 @@ tasks.test {
 
 tasks.jacocoTestReport {
     dependsOn(tasks.test)
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
 }
